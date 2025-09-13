@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Showcasing Heritage & Culture — AI & HTML</title>
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --accent:#0f6b8a;
+      --muted:#6b7280;
+      --accent-2:#f59e0b;
+      --success:#10b981;
+      --danger:#ef4444;
+      --glass: rgba(255,255,255,0.6);
+      --radius:12px;
+      --maxw:1100px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%; margin:0; background:linear-gradient(180deg,#eaf4f9 0%,var(--bg) 100%); color:#0b1220}
+    .container{max-width:var(--maxw); margin:28px auto; padding:28px;}
+    header{
+      display:flex; gap:20px; align-items:center; justify-content:space-between;
+      background:linear-gradient(90deg,#fff 0%, #f0fbff 100%);
+      padding:18px; border-radius:var(--radius); box-shadow:0 8px 30px rgba(12,40,60,0.06);
+    }
+    .title{
+      display:flex; gap:14px; align-items:center;
+    }
+    .logo {
+      height:72px; width:72px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+      background:linear-gradient(180deg,var(--accent) 0%, #0b9bd1 100%);
+      color:white; font-weight:700; font-size:14px;
+      box-shadow:0 6px 20px rgba(11,107,138,0.25);
+    }
+    .title h1{margin:0; font-size:20px; letter-spacing:0.6px;}
+    .title p{margin:0; color:var(--muted); font-size:13px;}
+    nav{display:flex; gap:10px; align-items:center;}
+    nav a{font-size:13px; color:var(--accent); text-decoration:none; padding:6px 10px; border-radius:8px;}
+    nav a:hover{background:rgba(15,107,138,0.06);}
+
+    main{margin-top:22px; display:grid; grid-template-columns: 1fr 340px; gap:20px;}
+    @media (max-width:1000px){ main{grid-template-columns:1fr;} .sidebar{order:2}}
+    .card{background:var(--card); border-radius:12px; padding:18px; box-shadow:0 8px 20px rgba(12,40,60,0.04)}
+    .hero{
+      display:flex; gap:18px; align-items:center; padding:12px 16px;
+      border-radius:10px; background:linear-gradient(90deg,#fff 0%, #f7fbff 100%); border:1px solid rgba(10,70,90,0.03);
+    }
+    .hero .left h2{margin:0; font-size:20px; letter-spacing:0.8px;}
+    .hero .left p{margin:4px 0 0; color:var(--muted); font-size:13px;}
+    .brain{
+      width:100px; height:68px; display:flex; align-items:center; justify-content:center;
+      background:linear-gradient(90deg, #fff3cd, #d1f7ff); border-radius:10px; border:1px dashed rgba(0,0,0,0.04);
+      font-weight:700; color:#0b3b4a;
+    }
+
+    section{margin-top:16px;}
+    h3{margin:0 0 10px 0; font-size:16px; color:#08303b}
+    p{color:#223243; line-height:1.45; margin:6px 0 12px 0; font-size:14px}
+
+    ul{padding-left:18px; margin:8px 0 12px 0}
+    li{margin:6px 0; color:#26313a;}
+
+    .two-cols{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+    @media (max-width:700px){ .two-cols{grid-template-columns:1fr}}
+
+    .accordion{border-top:1px solid rgba(10,20,30,0.03)}
+    .acc-item{padding:10px 6px; display:flex; gap:10px; align-items:start; cursor:pointer; border-bottom:1px solid rgba(10,20,30,0.03)}
+    .acc-item h4{margin:0; font-size:14px}
+    .acc-body{padding:10px 6px 16px 6px; display:none; color:var(--muted); font-size:14px}
+
+    .chip{display:inline-block; padding:6px 8px; border-radius:999px; background:rgba(10,100,120,0.06); color:var(--accent); font-weight:600; font-size:12px}
+    .tagline{font-size:13px; color:var(--muted); margin-top:6px}
+
+    /* advantages/disadvantages grid */
+    .grid-adv{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+    @media (max-width:900px){ .grid-adv{grid-template-columns:1fr}}
+
+    .adv-list li strong{color:var(--accent); margin-right:6px}
+    .dis-list li strong{color:var(--danger); margin-right:6px}
+
+    footer{margin-top:26px; text-align:center; color:var(--muted); font-size:13px}
+    .btn {
+      display:inline-block; background:var(--accent); color:white; padding:8px 12px; border-radius:8px; text-decoration:none; font-weight:600;
+      box-shadow:0 6px 18px rgba(11,107,138,0.18)
+    }
+
+    /* little card badges */
+    .feature{display:flex; gap:12px; align-items:flex-start}
+    .feature .ico{width:46px; height:46px; border-radius:10px; background:rgba(11,107,138,0.08); display:flex; align-items:center; justify-content:center; font-weight:700}
+    .examples li{margin:8px 0}
+
+    /* small responsive tweaks */
+    .sidebar .card{position:sticky; top:24px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="title">
+        <div class="logo">SIH<br>2025</div>
+        <div>
+          <h1>SHOWCASING HERITAGE & CULTURE USING AI & HTML</h1>
+          <p>Smart India Hackathon 2025 — CultureSpot (project brief)</p>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#intro">Intro</a>
+        <a href="#techniques">Techniques</a>
+        <a href="#advantages">Pros & Cons</a>
+        <a href="#apps">Applications</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- main content -->
+      <div>
+        <div class="card hero">
+          <div class="left">
+            <h2>Heritage + Technology = Living Knowledge</h2>
+            <p class="tagline">A VR-powered metaverse and AI-enabled platform to make heritage interactive, accessible and global.</p>
+            <div style="margin-top:10px">
+              <span class="chip">Enter → Explore → Learn → Celebrate</span>
+            </div>
+          </div>
+          <div style="margin-left:auto;">
+            <div class="brain">AI · VR</div>
+          </div>
+        </div>
+
+        <section id="intro" class="card">
+          <h3>Introduction & Motivation</h3>
+          <ul>
+            <li>Monuments fading, languages at risk, youth disconnected.</li>
+            <li>There is a need for preserving culture in a digital, engaging way.</li>
+            <li><strong>CultureSpot</strong> makes culture interactive, accessible & global:
+              <ul>
+                <li>To celebrate diversity.</li>
+                <li>To pass heritage into the digital age.</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section id="ai-html" class="card">
+          <h3>AI & HTML Techniques for Culture</h3>
+          <p><strong>HTML techniques:</strong> Hypertext Markup Language defines headings, paragraphs, lists and sections so browsers render pages, including images, audio, and video (via <code>&lt;img&gt;</code>, <code>&lt;audio&gt;</code>, <code>&lt;video&gt;</code>).</p>
+          <p><strong>Artificial intelligence models:</strong> Artificial intelligence models utilize advanced data processing to recreate cultural experiences and preserve heritage, thereby enhancing our ability to effectively protect, promote, and share culture with future generations.</p>
+          <div class="two-cols" style="margin-top:12px">
+            <div class="card feature">
+              <div class="ico">VR</div>
+              <div>
+                <h4>VR Cultural Museums</h4>
+                <p style="margin:6px 0 0;">Immersive, 3D reconstructions of monuments and heritage sites.</p>
+              </div>
+            </div>
+
+            <div class="card feature">
+              <div class="ico">AI</div>
+              <div>
+                <h4>AI Historical Avatars</h4>
+                <p style="margin:6px 0 0;">Chat with intelligent avatars to learn languages, rituals and stories.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="techniques" class="card">
+          <h3>Techniques (how it works)</h3>
+          <p><strong>Concept:</strong> From isolated museums → to a connected global cultural metaverse. Make heritage accessible to everyone, everywhere.</p>
+          <ul>
+            <li>3D scanning & photogrammetry for monuments.</li>
+            <li>AI-driven content generation for context, translations, guided tours.</li>
+            <li>AR/VR experiences for immersive festivals and historical scenes.</li>
+            <li>Blockchain for authenticity & provenance of digital artifacts.</li>
+          </ul>
+
+          <h4 style="margin-top:8px">A VR headset experience</h4>
+          <p>Walk through Ancient Rome, attend a virtual Diwali, or learn Sanskrit from an AI avatar.</p>
+          <ul>
+            <li>VR Cultural Museums</li>
+            <li>AI Historical Avatars</li>
+            <li>Virtual Festivals</li>
+            <li>NFT-based Cultural Collectibles (for provenance & community)</li>
+          </ul>
+        </section>
+
+        <section id="examples" class="card">
+          <h3>Examples & Case Studies</h3>
+          <ul class="examples">
+            <li><strong>Preservation</strong> → Ajanta & Ellora caves digitized in 3D by ASI and Google Arts & Culture.</li>
+            <li><strong>Accessibility</strong> → Virtual tours of the Taj Mahal and Qutub Minar allow global access online.</li>
+            <li><strong>Engagement</strong> → AR apps at Hampi let visitors see how temples looked centuries ago.</li>
+            <li><strong>Tourism boost</strong> → VR tour of Mysore Palace increased online tourist interest during pandemic.</li>
+            <li><strong>Education</strong> → UNESCO’s World Heritage interactive site teaches students about global heritage.</li>
+            <li><strong>Authenticity</strong> → Blockchain projects in museums (Europe) used to protect artifact ownership records.</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- sidebar -->
+      <aside class="sidebar">
+        <div class="card">
+          <h3>Advantages & Disadvantages</h3>
+          <div class="grid-adv">
+            <div>
+              <h4 style="margin-bottom:8px">✅ Advantages</h4>
+              <ul class="adv-list">
+                <li><strong>Preservation</strong> → Digital storage of monuments, languages, and traditions.</li>
+                <li><strong>Accessibility</strong> → Anyone, anywhere can explore heritage.</li>
+                <li><strong>Engagement</strong> → Youth connect better through AR/VR and gamification.</li>
+                <li><strong>Tourism boost</strong> → Attracts global visitors with immersive previews.</li>
+                <li><strong>Education</strong> → Interactive cultural learning for students.</li>
+                <li><strong>Authenticity</strong> → Blockchain ensures trust in artifacts and content.</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="margin-bottom:8px">⚠ Disadvantages</h4>
+              <ul class="dis-list">
+                <li><strong>Technology dependency</strong> → Needs smartphones, VR headsets, or internet.</li>
+                <li><strong>Cost</strong> → Development and maintenance are resource-intensive.</li>
+                <li><strong>Digital divide</strong> → Rural/low-income users may face access issues.</li>
+                <li><strong>Accuracy challenges</strong> → AI reconstructions might misrepresent culture if data is wrong.</li>
+                <li><strong>Cultural sensitivity</strong> → Risk of misusing or misrepresenting traditions.</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr style="border:none;border-top:1px solid rgba(10,20,30,0.03); margin:12px 0">
+
+          <h3 id="apps">Applications</h3>
+          <ul>
+            <li><strong>Students</strong> → Fun, interactive learning.</li>
+            <li><strong>Tourists</strong> → Immersive heritage tours.</li>
+            <li><strong>Communities</strong> → Digital preservation of local traditions.</li>
+            <li><strong>Elders</strong> → Visualization & adventuring experiences to revisit memories.</li>
+            <li><strong>General</strong> → Complete knowledge and blessing world!!</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Quick Tech Notes</h3>
+          <p style="margin-bottom:8px"><strong>Frontend:</strong> HTML5, CSS3, JS (WebXR/WebGL for VR), responsive design.</p>
+          <p style="margin-bottom:8px"><strong>Backend & AI:</strong> Cloud compute, model hosting (vision + language), storage for 3D assets, metadata DB, optional blockchain layer for provenance.</p>
+          <p style="margin-bottom:10px">Prototype ideas: a demo single-page VR tour using A-Frame or Three.js + an AI chatbot guide.</p>
+          <a class="btn" href="#" onclick="alert('Export/Share feature to be added')">Share Project</a>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div>Prepared for <strong>Smart India Hackathon 2025</strong> · Project: <em>CultureSpot</em></div>
+      <div style="margin-top:6px; font-size:13px; color:var(--muted)">Made with HTML • CSS • JavaScript</div>
+    </footer>
+  </div>
+
+  <script>
+    // Smooth scroll for nav links
+    document.querySelectorAll('nav a').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href');
+        document.querySelector(id).scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+
+    // Simple accordion for any .acc-item (if present later)
+    document.querySelectorAll('.acc-item').forEach(item=>{
+      item.addEventListener('click', ()=>{
+        const body = item.nextElementSibling;
+        if(!body) return;
+        const open = body.style.display === 'block';
+        document.querySelectorAll('.acc-body').forEach(b=>b.style.display='none');
+        body.style.display = open ? 'none' : 'block';
+      });
+    });
+
+    // mobile friendly - collapse check (example usage)
+    window.addEventListener('load', ()=> {
+      // placeholder for future interactive features like toggles, VR launch, or AI demo call
+      console.log('CultureSpot prototype loaded');
+    });
+  </script>
+</body>
+</html>
+
+
